@@ -9,25 +9,25 @@ a, b = 0, 0
 visited = [[False for _ in range(m)] for _ in range(n)]
 
 def bfs(map, a, b):
-    now = 0
+    cnt = 0
     queue = deque()
-    queue.append([a, b, now])
+    queue.append([a, b, cnt])
     dx = [-1, 1, 0, 0]
     dy = [0, 0, -1, 1]
     while queue:
         dot = queue.popleft()
         x = dot[0]
         y = dot[1]
-        now = dot[2]
-        now += 1
+        cnt = dot[2]
+        cnt += 1
         visited[x][y] = True
         if x == n - 1 and y == m - 1:
-            print("x:", x, "y:", y, "now count: ", now)
+            print("x:", x, "y:", y, "count: ", cnt)
             break
         for i in range(4):
             if (0 <= x + dx[i] < n and 0 <= y + dy[i] < m) and map[x + dx[i]][y + dy[i]] == 1 and not visited[x + dx[i]][y + dy[i]]:
-                queue.append([x + dx[i], y + dy[i], now])
-                print("x:", x, "y:", y, "now count: ", now)
-    return now
+                queue.append([x + dx[i], y + dy[i], cnt])
+                print("x:", x, "y:", y, "count: ", cnt)
+    return cnt
 
 print(bfs(map, a, b))
