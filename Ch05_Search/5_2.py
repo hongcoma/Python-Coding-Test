@@ -8,7 +8,6 @@ map = [list(map(int, input())) for _ in range(n)]
 a, b = 0, 0
 visited = [[False for _ in range(m)] for _ in range(n)]
 
-
 def bfs(map, a, b):
     now = 0
     queue = deque()
@@ -30,6 +29,5 @@ def bfs(map, a, b):
                 queue.append([x + dx[i], y + dy[i], now])
                 print("x:", x, "y:", y, "now count: ", now)
     return now
-
 
 print(bfs(map, a, b))
