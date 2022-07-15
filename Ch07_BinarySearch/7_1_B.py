@@ -19,10 +19,8 @@ def parts_sort(start, end, shop, client):
             return True
         elif shop[mid] > client:
             end -= 1
-        elif shop[mid] < client:
-            start += 1
         else:
-            return False
+            start += 1
 
 for i in parts_client:
     if parts_sort(start, end, parts_shop, i):
