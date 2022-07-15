@@ -9,17 +9,18 @@ parts_client = list(map(int, input().split()))
 
 parts_shop.sort()
 
-start=0
-end=n-1
+start = 0
+end = n - 1
+
 def parts_sort(start, end, shop, client):
-    while start<=end:
+    while start <= end:
         mid = (start + end) // 2
         if shop[mid] == client:
             return True
         elif shop[mid] > client:
-            start = shop[mid]
+            end -= 1
         elif shop[mid] < client:
-            end = shop[mid]
+            start += 1
         else:
             return False
 
@@ -28,4 +29,3 @@ for i in parts_client:
         print("yes", end=' ')
     else:
         print("no", end=' ')
-
