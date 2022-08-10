@@ -10,20 +10,15 @@
 n, m = map(int, input().split())
 ricecake = list(map(int, input().split()))
 
-start = 0
-end = max(ricecake)
+maximum = int(max(ricecake))
 client = 0
-while start <= end:
-    mid = int((start + end) / 2)
+while True:
     for i in ricecake:
-        if i - mid >= 0:
-            client += i - mid
-    if client < m:
-        client = 0
-        end = mid - 1
-    elif client >= m:
-        maximum = mid
-        client = 0
-        start = mid + 1
+        if i - maximum >= 0:
+            client += i - maximum
+    if client >= m:
+        break
+    client=0
+    maximum-=1
 
 print(maximum)
