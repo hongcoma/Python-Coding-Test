@@ -18,7 +18,7 @@ while True:
             client += i - maximum
     if client >= m:
         break
-    client=0
-    maximum-=1
+    client = 0
+    maximum -= 1
 
 print(maximum)
